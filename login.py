@@ -6,7 +6,7 @@ class Login:
     def __init__(self, root):
         self.root = root
         self.root.title("Login")
-        self.root.geometry("720x480")
+        self.root.geometry("900x600")
         self.root.configure(bg="#1e1e2f")
 
         # Center Frame (Card Style)
@@ -52,7 +52,12 @@ class Login:
         if user:
             messagebox.showinfo("Success", "Login Successful")
             self.root.destroy()
-            import dashboard
+            import tkinter as tk
+            from dashboard import Dashboard
+
+            new_root = tk.Tk()
+            app = Dashboard(new_root)
+            new_root.mainloop()
         else:
             messagebox.showerror("Error", "Invalid Credentials")
 
